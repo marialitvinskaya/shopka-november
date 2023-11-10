@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import {styled} from "@mui/material/styles";
-import theme from "../createTheme";
 
 const StyledStockButton = styled(Button)(({theme}) => ({
     // height: "24px",
@@ -16,7 +15,6 @@ const StyledStockButton = styled(Button)(({theme}) => ({
     position: "absolute", left: 0, top: 0, zIndex: 1,
     borderRadius: "0",
 }));
-
 
 export default function StockButton(props) {
     if (props.inStock === false) {

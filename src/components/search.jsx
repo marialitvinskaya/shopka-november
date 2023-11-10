@@ -18,7 +18,6 @@ const SearchContainer = styled(Paper)(({ theme }) => ({
 }));
 const SearchBar = ({query, setQuery}) => {
 
-
     return (
         <SearchContainer elevation={0} sx={{maxWidth: "668px", height: "48px", mx: "55px"}}>
             <InputAdornment position="start">
@@ -30,6 +29,5 @@ const SearchBar = ({query, setQuery}) => {
         </SearchContainer>
   );
 };
-
 
 export default SearchBar;

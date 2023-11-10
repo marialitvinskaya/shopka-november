@@ -12,7 +12,6 @@ const StyledAccordion = styled(Accordion)(({theme}) => ({
     '& .MuiButtonBase-root, &.MuiAccordionSummary-root': {
         maxHeight: "36px", // Set minHeight to unset
     },
-
 }));
 export default function CustomerReviews({setBtn}) {
     const [expanded, setExpanded] = useState(false);

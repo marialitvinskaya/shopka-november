@@ -11,13 +11,11 @@ export default function AccountButtons({cartItems, removeFromCart, count}) {
     const openCart = () => {
         setIsCartOpen(true);
     };
-
     const closeCart = () => {
         setIsCartOpen(false);
     };
 
     return (
-
         <div>
             <Badge color="red" badgeContent={count} showZero anchorOrigin={{vertical: "top", horizontal: "right"}}>
             <Button
@@ -40,7 +38,5 @@ export default function AccountButtons({cartItems, removeFromCart, count}) {
             </Badge>
             {isCartOpen && <CreateWatchList cartItems={cartItems} removeFromCart={removeFromCart} closeCart={closeCart}/>}
         </div>
-
     );
-
 }

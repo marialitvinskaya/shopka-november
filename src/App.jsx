@@ -16,10 +16,8 @@ import priceAfterDiscount from "./components/priceAfterDiscount";
 function App() {
 
     // adding cards to the cart and remove
-
     const [cartItems, setCartItems] = useState([]);
     const [count, setCount] = useState(0);
-
 
     const addToCart = (itemToAdd) => {
         if (!cartItems.some((item) => item.id === itemToAdd.id)) {
@@ -31,8 +29,6 @@ function App() {
     const removeFromCart = (id) => {
         setCartItems(cartItems.filter(item => item.id !== id));
         setCount(prevCount => prevCount - 1);
-        // setWishList(false);
-
     };
 
 // creating new data array with the price after discount
@@ -44,7 +40,6 @@ function App() {
     });
 
 // creating sort and filters
-
     const [query, setQuery] = useState("");
     const [sortBy, setSortBy] = useState(null);
     const [btn, setBtn] = useState("");
@@ -57,12 +52,8 @@ function App() {
     const handlePriceRange = (newValue) =>
     setPriceRange(newValue);
 
-
     const filterData = (query, data, sortBy, btn, priceRange) => {
-
         let filteredData = [...dataWithDiscount];
-
-
         if (sortBy === "asc") {
             filteredData = filteredData.sort((a, b) => a.priceAfterDiscount - b.priceAfterDiscount);
         } else if (sortBy === "desc") {
@@ -70,7 +61,6 @@ function App() {
         } else if (sortBy === "rate") {
             filteredData = filteredData.sort((a, b) => b.review - a.review);
         }
-
         if (query) {
             filteredData = filteredData.filter(
                 (d) =>
@@ -85,17 +75,13 @@ function App() {
                     d.review.toFixed(1) >= btn
             );
         }
-
         filteredData = filteredData.filter((d) =>
             d.priceAfterDiscount >= priceRange[0] && d.priceAfterDiscount <= priceRange[1]
         );
-
         return filteredData;
     }
 
-
     const filteredData = filterData(query, dataWithDiscount, sortBy, btn, priceRange);
-
 
     return (
         <div>
@@ -156,10 +142,7 @@ function App() {
                     </Box>
                 </Grid>
             </Grid>
-
-
         </div>
-
     );
 }
 export default App;

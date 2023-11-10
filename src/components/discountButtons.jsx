@@ -15,7 +15,6 @@ const StyledDiscButton = styled(Button)(({theme}) => ({
     textTransform: "none"
 }));
 
-
 export default function DiscountButton({content}) {
     return (
         content > 0 &&

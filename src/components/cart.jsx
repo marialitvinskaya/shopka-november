@@ -10,11 +10,6 @@ import Stack from "@mui/material/Stack";
 
 export default function CartOld({cartItems, removeFromCart, closeCart}) {
 
-
-
-
-
-
     return (
         <Box sx={{
             zIndex: "999",

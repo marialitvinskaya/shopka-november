@@ -4,7 +4,6 @@ import Slider, {SliderThumb} from '@mui/material/Slider';
 import {styled} from '@mui/material/styles';
 import theme from "../createTheme";
 
-
 const StyledSlider = styled(Slider)(({theme}) => ({
     width: 210,
     color: theme.palette.grey[30],
@@ -25,9 +24,7 @@ const StyledSlider = styled(Slider)(({theme}) => ({
 const valueText = (value) =>
     `$ ${value}`;
 
-
 export default function RangeSlider({priceRange, onChange}) {
-
     return (
         <Box sx={{
             mt: 1,
@@ -46,8 +43,6 @@ export default function RangeSlider({priceRange, onChange}) {
             borderRadius: "3px",
             position: "relative"
         }}>
-
-
             <StyledSlider
                 orientation="horizontal"
                 getAriaLabel={() => 'PriceRange'}

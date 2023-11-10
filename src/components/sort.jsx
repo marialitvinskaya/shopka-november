@@ -13,13 +13,11 @@ export default function BasicSelect({handleSort}) {
   const [condition, setCondition] = useState("");
   const [delivery, setDelivery] = useState("");
 
-
   const handleChange = ((event) => {
     const {value} = event.target;
     setSortBy(value);
     handleSort(value);
   })
-
 
   return (
       <Stack direction="row" spacing={2}>
@@ -41,7 +39,6 @@ export default function BasicSelect({handleSort}) {
         <FormControl >
           <InputLabel   id="conditionLabel">Condition</InputLabel>
           <Select
-
               labelId="conditionLabel"
               id="conditionSelect"
               value={condition}

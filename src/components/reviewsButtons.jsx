@@ -4,8 +4,6 @@ import Typography from "@mui/material/Typography";
 import StarIcon from '@mui/icons-material/Star';
 import {styled} from "@mui/material/styles";
 
-
-
 const StyledButton = styled(Button)(({theme}) => ({
     backgroundColor: theme.palette.grey[5],
     borderRadius: "4px",
@@ -13,7 +11,6 @@ const StyledButton = styled(Button)(({theme}) => ({
     boxShadow: "none",
     margin: "2px",
 }));
-
 
 const Star = () => {
     return <StarIcon sx={{fontSize: "16px", color: "#FB8200"}}/>

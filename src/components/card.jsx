@@ -16,10 +16,8 @@ import priceAfterDiscount from "./priceAfterDiscount";
 import StockButton from "./stockButton";
 import {useState} from "react";
 
-
 export default function MultiActionAreaCard(props) {
     const [isWishList, setWishList] = useState(false);
-
 const handleClick = () => {
     setWishList(true);
     props.addToCart(props)
@@ -44,7 +42,6 @@ const handleClick = () => {
       }}
       elevation={0}
     >
-
       <CardActionArea >
           <StockButton inStock={props.inStock}/>
         <CardMedia
@@ -76,7 +73,6 @@ const handleClick = () => {
                   </Typography>
               </Stack>
         </CardContent>
-
       </CardActionArea>
         <Box sx={{width: "100%", display: "flex", direction: "row", justifyContent: "space-between"}}>
             <CardActions sx={{

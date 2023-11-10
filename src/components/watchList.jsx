@@ -10,7 +10,6 @@ import Stack from "@mui/material/Stack";
 
 export default function CreateWatchList({cartItems, removeFromCart, closeCart}) {
 
-
     return (
         <Box sx={{
             zIndex: "999",
@@ -43,12 +42,10 @@ export default function CreateWatchList({cartItems, removeFromCart, closeCart}) 
                     p: 1,
                     mt: 1,
                 }} key={item.id}>
-
                     <Stack direction="row" sx={{justifyContent: "space-evenly"}}>
                         <Typography sx={{color: theme.palette.grey[100]}}> {item.name} </Typography>
                         <Typography variant="priceCart" color="common.black" sx={{my: 1}}
                                     sx={{color: theme.palette.grey[100]}}> {(item.price - ((item.price * item.discount) / 100)).toFixed(2)} {item.currency.toLowerCase()}</Typography>
-
                     </Stack>
                     <Stack direction="row" sx={{
                         mx: "auto",

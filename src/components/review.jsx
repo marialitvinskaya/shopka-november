@@ -17,7 +17,6 @@ const labels = {
     5: 'Excellent+',
 };
 
-
 export default function TextRating({rate}) {
     const value = [rate];
 

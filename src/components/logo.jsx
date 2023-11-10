@@ -13,5 +13,4 @@ function LogoHeader() {
     </div>
   );
 }
-
 export default LogoHeader;
