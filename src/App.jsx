@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import RouterProvider from "./Routes";
 import ResponsiveAppBar from "./components/header.jsx";
 import Box from "@mui/material/Box";
 import MultiActionAreaCard from "./components/card.jsx";
@@ -12,6 +13,7 @@ import RangeSlider from "./components/slider";
 import CustomerReviews from "./components/customerReviews";
 import data from "./data";
 import priceAfterDiscount from "./components/priceAfterDiscount";
+
 
 function App() {
 
@@ -30,6 +32,7 @@ function App() {
         setCartItems(cartItems.filter(item => item.id !== id));
         setCount(prevCount => prevCount - 1);
     };
+
 
 // creating new data array with the price after discount
     const dataWithDiscount = data.map((d) => {
@@ -142,6 +145,7 @@ function App() {
                     </Box>
                 </Grid>
             </Grid>
+            <RouterProvider />
         </div>
     );
 }

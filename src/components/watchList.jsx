@@ -1,14 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import Button from "@mui/material/Button";
 import theme from "../createTheme";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import priceAfterDiscount from "./priceAfterDiscount";
 import Stack from "@mui/material/Stack";
 
-export default function CreateWatchList({cartItems, removeFromCart, closeCart}) {
+export default function WatchList({cartItems, removeFromCart, closeCart}) {
+    if (!cartItems) {
+        return null; // or some other fallback UI
+    }
 
     return (
         <Box sx={{

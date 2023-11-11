@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import Button from "@mui/material/Button";
 import theme from "../createTheme";
-import CreateWatchList from "./watchList";
+import WatchList from "./watchList";
 import Badge from '@mui/material/Badge';
+import {Link} from "react-router-dom";
 
 export default function AccountButtons({cartItems, removeFromCart, count}) {
 
@@ -18,6 +19,7 @@ export default function AccountButtons({cartItems, removeFromCart, count}) {
     return (
         <div>
             <Badge color="red" badgeContent={count} showZero anchorOrigin={{vertical: "top", horizontal: "right"}}>
+                <Link to="/watch-list">
             <Button
                 color="primary"
                 sx={{
@@ -35,8 +37,9 @@ export default function AccountButtons({cartItems, removeFromCart, count}) {
             >
                 Watch
             </Button>
+                </Link>
             </Badge>
-            {isCartOpen && <CreateWatchList cartItems={cartItems} removeFromCart={removeFromCart} closeCart={closeCart}/>}
+            {isCartOpen && <WatchList cartItems={cartItems} removeFromCart={removeFromCart} closeCart={closeCart}/>}
         </div>
     );
 }

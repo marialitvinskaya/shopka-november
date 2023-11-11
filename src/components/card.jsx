@@ -16,11 +16,12 @@ import priceAfterDiscount from "./priceAfterDiscount";
 import StockButton from "./stockButton";
 import {useState} from "react";
 
+
 export default function MultiActionAreaCard(props) {
     const [isWishList, setWishList] = useState(false);
 const handleClick = () => {
-    setWishList(true);
-    props.addToCart(props)
+    setWishList((prevValue) => !prevValue);
+    props.addToCart(props);
 };
 
     return (
@@ -81,6 +82,7 @@ const handleClick = () => {
                 mt: 1
             }}>
               <TextRating rate={props.rate} />
+
         <Button
             sx={{
                 ml: "auto", p: 0, ...theme.typography.button, minWidth: "88px",
