@@ -7,9 +7,9 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Stack from "@mui/material/Stack";
 
-export default function WatchList({cartItems, removeFromCart, closeCart}) {
-    if (!cartItems) {
-        return null; // or some other fallback UI
+export default function WatchList({listItems, removeFromList, closeList}) {
+    if (!listItems) {
+        return null;
     }
 
     return (
@@ -26,12 +26,12 @@ export default function WatchList({cartItems, removeFromCart, closeCart}) {
             borderRadius: "6px",
             textAlign: "center"
         }}>
-            <IconButton onClick={closeCart} sx={{position: "absolute", top: 2, right: 2}}>
+            <IconButton onClick={closeList} sx={{position: "absolute", top: 2, right: 2}}>
                 <CloseIcon size="small" color="#000"/>
             </IconButton>
             <Typography variant="descriptionBoldRob" sx={{color: theme.palette.grey[70]}}>Your list</Typography>
-            {cartItems.length === 0 ? <p style={{my: 3, color: "#000"}}> No items in the list. </p> : null}
-            {cartItems.map((item) => (
+            {listItems.length === 0 ? <p style={{my: 3, color: "#000"}}> No items in the list. </p> : null}
+            {listItems.map((item) => (
                 <Box sx={{
                     flex: "display",
                     flexDirection: "column",
@@ -59,7 +59,7 @@ export default function WatchList({cartItems, removeFromCart, closeCart}) {
                         <Button
                             variant="outlined"
                             color="primary" z
-                            onClick={() => removeFromCart(item.id)}
+                            onClick={() => removeFromList(item.id)}
                             sx={{width: "80px", height: "30px", ml: "auto"}}
                         >
                             Remove

@@ -5,15 +5,15 @@ import WatchList from "./watchList";
 import Badge from '@mui/material/Badge';
 import {Link} from "react-router-dom";
 
-export default function AccountButtons({cartItems, removeFromCart, count}) {
+export default function AccountButtons({listItems, removeFromList, count}) {
 
-    const [isCartOpen, setIsCartOpen] = useState(false);
+    const [isListOpen, setIsListOpen] = useState(false);
 
-    const openCart = () => {
-        setIsCartOpen(true);
+    const openList = () => {
+        setIsListOpen(true);
     };
-    const closeCart = () => {
-        setIsCartOpen(false);
+    const closeList = () => {
+        setIsListOpen(false);
     };
 
     return (
@@ -33,13 +33,13 @@ export default function AccountButtons({cartItems, removeFromCart, count}) {
                     border: "1px solid",
                     borderColor: theme.palette.primary.light,
                 }}
-                onClick={openCart}
+                onClick={openList}
             >
                 Watch
             </Button>
                 </Link>
             </Badge>
-            {isCartOpen && <WatchList cartItems={cartItems} removeFromCart={removeFromCart} closeCart={closeCart}/>}
+            {isListOpen && <WatchList listItems={listItems} removeFromList={removeFromList} closeList={closeList}/>}
         </div>
     );
 }

@@ -18,19 +18,28 @@ import priceAfterDiscount from "./components/priceAfterDiscount";
 function App() {
 
     // adding cards to the cart and remove
-    const [cartItems, setCartItems] = useState([]);
+    const [listItems, setListItems] = useState([]);
     const [count, setCount] = useState(0);
+    const [isWishList, setWishList] = useState(false);
 
-    const addToCart = (itemToAdd) => {
-        if (!cartItems.some((item) => item.id === itemToAdd.id)) {
-            setCartItems([...cartItems, itemToAdd]);
+    const addToList = (itemToAdd) => {
+        if (!listItems.some((item) => item.id === itemToAdd.id)) {
+            setListItems([...listItems, itemToAdd]);
             setCount(prevCount => prevCount + 1);
+            setWishList((prevState) => ({
+                ...prevState,
+                [itemToAdd.id]: true,
+            }));
         }
     }
 
-    const removeFromCart = (id) => {
-        setCartItems(cartItems.filter(item => item.id !== id));
+    const removeFromList = (id) => {
+        setListItems(listItems.filter(item => item.id !== id));
         setCount(prevCount => prevCount - 1);
+        setWishList((prevState) => ({
+            ...prevState,
+            [id]: false,
+        }));
     };
 
 
@@ -89,8 +98,8 @@ function App() {
     return (
         <div>
             <Box sx={{display: "flex", justifyContent: "center", height: "88px", alignItems: "center", mb: 6.5}}>
-                <ResponsiveAppBar query={query} setQuery={setQuery} sx={{mx: 'auto'}} cartItems={cartItems}
-                                  removeFromCart={removeFromCart} count={count} />
+                <ResponsiveAppBar query={query} setQuery={setQuery} sx={{mx: 'auto'}} listItems={listItems}
+                                  removeFromList={removeFromList} count={count} />
             </Box>
             <Grid container spacing={3} justifyContent="center" flexWrap="nowrap">
                 <Grid item direction="column" xs="auto"
@@ -138,7 +147,10 @@ function App() {
                                     method={d.shipping.method}
                                     estimatedDelivery={d.shipping.estimatedDelivery}
                                     inStock={d.inStock}
-                                    addToCart={addToCart}
+                                    addToList={addToList}
+                                    removeFromList={removeFromList}
+                                    isWishList={isWishList}
+                                    setWishList={setWishList}
                                 />
                             ))}
                         </Grid>

@@ -14,14 +14,10 @@ import TextRating from "./review";
 import theme from "../createTheme";
 import priceAfterDiscount from "./priceAfterDiscount";
 import StockButton from "./stockButton";
-import {useState} from "react";
-
 
 export default function MultiActionAreaCard(props) {
-    const [isWishList, setWishList] = useState(false);
 const handleClick = () => {
-    setWishList((prevValue) => !prevValue);
-    props.addToCart(props);
+    props.addToList(props);
 };
 
     return (
@@ -91,7 +87,7 @@ const handleClick = () => {
           size="small"
           variant="outlined"
           color="primary"
-          startIcon={isWishList ? <FavoriteIcon sx={{color: "primary.blue60"}}/> : <FavoriteBorderOutlinedIcon sx={{color: "primary.blue60"}}/>}
+          startIcon={props.isWishList[props.id] ? <FavoriteIcon sx={{color: "primary.blue60"}}/> : <FavoriteBorderOutlinedIcon sx={{color: "primary.blue60"}}/>}
             onClick={handleClick}
         >
           Watch
